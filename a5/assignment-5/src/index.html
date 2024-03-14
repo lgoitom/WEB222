@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=500, initial-scale=1" />
+
+    <!-- Change this to your name-->
+    <meta name="author" content="Luwam Goitom" />
+
+    <title>WEB222 Music App</title>
+    <!-- Classless CSS Stylesheet - https://watercss.kognise.dev/ -->
+    <link rel="stylesheet" href="./css/water.css" />
+  </head>
+  <body class="back">
+    <div>
+      <header>
+        <!-- Change this to your App's info -->
+        <div class="header">
+          <h1>Discogify</h1>
+        </div>
+        <div class="caption">
+          <p>Artists' discography made simple</p>
+        </div>
+      </header>
+
+      <nav id="menu">
+        <!-- Dynamically create your menu category buttons here -->
+      </nav>
+
+      <hr />
+
+      <main>
+        <h2 id="selected-artist">
+          <!-- Dynamically update the selected category title -->
+        </h2>
+        <!--
+          
+          <table>
+            <thead>
+              <th>Song Name</th>
+              <th>Year Recorded</th>
+              <th>Duration (mm:ss)</th>
+            </thead>
+            <tbody id="songs">
+            </tbody>
+          </table>
+        -->
+
+        <div id="song-cards" class="card-container">
+          <!-- Dynamically create and populate song cards here -->
+        </div>
+      </main>
+
+      <!-- JavaScript Data Files -->
+      <script src="./js/artists.js"></script>
+      <script src="./js/songs.js"></script>
+
+      <!-- Main App JavaScript File -->
+      <script src="./js/app.js"></script>
+    </div>
+  </body>
+</html>
