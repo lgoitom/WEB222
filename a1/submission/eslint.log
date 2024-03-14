@@ -1,0 +1,22 @@
+
+> web222-assignment-1@6.0.0 eslint
+> eslint src/**/*.js
+
+
+C:\Documents\WEB222\a1\src\solutions.js
+  232:17  error    Unnecessary escape character: \"     no-useless-escape
+  232:32  error    Unnecessary escape character: \"     no-useless-escape
+  244:18  error    Unnecessary escape character: \"     no-useless-escape
+  244:34  error    Unnecessary escape character: \"     no-useless-escape
+  331:10  warning  Unnecessary 'else' after 'return'    no-else-return
+  471:12  warning  Unnecessary 'else' after 'return'    no-else-return
+  472:11  error    Unexpected constant condition        no-constant-condition
+  472:12  error    '_minute' is defined but never used  no-unused-vars
+  474:14  warning  Unnecessary 'else' after 'return'    no-else-return
+  475:13  error    Unexpected constant condition        no-constant-condition
+  475:14  error    '_second' is defined but never used  no-unused-vars
+  477:16  warning  Unnecessary 'else' after 'return'    no-else-return
+
+✖ 12 problems (8 errors, 4 warnings)
+  0 errors and 4 warnings potentially fixable with the `--fix` option.
+
