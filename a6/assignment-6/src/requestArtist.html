@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>artist request form</title>
+    <link rel="stylesheet" href="./css/water.css" />
+  </head>
+  <body class="back">
+    <div id="myDiv">
+      <p class="header">Request a new artist to be added!</p>
+      <!--gets user input for different elements-->
+      <form class="text" id="myForm" method="post">
+        <label>Artist Name</label>
+        <input id="artist-name" type="text" name="artist-name" />
+        <br />
+        <br />
+        <label for="musicGenre">Music Genre:</label>
+        <input list="genres" id="musicGenre" name="musicGenre" onchange="checkOtherGenre()" />
+        <datalist id="genres">
+          <option value="Pop"></option>
+          <option value="Rock"></option>
+          <option value="Hip Hop"></option>
+          <option value="R&B"></option>
+          <option value="Country"></option>
+          <option value="Jazz"></option>
+          <option value="Indie"></option>
+          <option value="EDM"></option>
+          <option value="Latin"></option>
+          <option value="Reggae"></option>
+          <option value="Classical"></option>
+          <option value="Other"></option>
+        </datalist>
+
+        <!--textbox that displays when other is clicked-->
+        <div id="otherGenreContainer" style="display: none">
+          <label for="otherGenre">Other:</label>
+          <input type="text" id="otherGenre" />
+        </div>
+
+        <script>
+          //function to check if other is clicked
+          function checkOtherGenre() {
+            //variables created for each element
+            var genreInput = document.getElementById("musicGenre");
+            var otherGenreContainer = document.getElementById("otherGenreContainer");
+            //checks if genre selected is other
+            if (genreInput.value.toLowerCase() === "other") {
+              //displays the other genre text box if true
+              otherGenreContainer.style.display = "block";
+            }
+          }
+        </script>
+        <br /><br />
+        <label>Social Media</label>
+        <input id="social-media" type="social-media" name="social-media" required />
+        <br />
+        <br />
+
+        <div id="urlsContainer">
+          <div class="form-group">
+            <label>Artists Song Link(s)</label>
+            <input type="text" name="url" />
+          </div>
+        </div>
+        <!--add url button-->
+        <button id="addUrlBtn">Add another</button>
+
+        <script>
+          //Finds element w addUrlBtn when button is clicked
+          document.getElementById("addUrlBtn").addEventListener("click", function () {
+            //Creates varables for new text box
+            var urlsContainer = document.getElementById("urlsContainer");
+            var newFormGroup = document.createElement("div");
+            //added to div
+            newFormGroup.classList.add("form-group");
+            var newInput = document.createElement("input");
+            //Sets type attributes
+            newInput.setAttribute("type", "text");
+            newInput.setAttribute("name", "url");
+            //added to div as a child element
+            newFormGroup.appendChild(newInput);
+            //added to urls container as a child
+            urlsContainer.appendChild(newFormGroup);
+          });
+        </script>
+        <br />
+        <label for="explicit">Explicit Lyrics:</label>
+        <input type="checkbox" id="explicit" name="explicit" /><br /><br /><br />
+
+        <label for="reason">Reason for Addition:</label><br />
+        <textarea id="reason" name="reason" rows="4" cols="50" required></textarea><br /><br />
+
+        <input type="checkbox" id="agreement1" name="agreement1" value="agree" />
+        <label for="agreement1">I agree to the terms and conditions</label>
+        <br />
+        <br />
+        <!--submit button-->
+        <button id="myButton">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      // variables created for each element that needs to be validated
+      const button = document.getElementById("myButton");
+      const div = document.getElementById("myDiv");
+      const checkbox = document.getElementById("agreement1");
+      const socials = document.getElementById("social-media");
+      const artistName = document.getElementById("artist-name");
+      const genre = document.getElementById("musicGenre");
+
+      // validation function
+      function changeContent(event) {
+        // Prevents the default form submission
+        event.preventDefault();
+
+        // Check validity only when the button is clicked
+        if (event.target === button) {
+          // Check if artist name is empty
+          if (artistName.value === "") {
+            alert("Enter an artist name");
+          } else {
+            // Check if agreement checkbox is checked
+            if (checkbox.checked) {
+              // Construct form data
+              const formData = new FormData();
+              formData.append("artist-name", artistName.value);
+              formData.append("musicGenre", genre.value);
+              formData.append("email", socials.value);
+              formData.append("agreement1", checkbox.value);
+
+              // Send the form data to httpbin.org/post using fetch
+              fetch("https://httpbin.org/post", {
+                method: "POST",
+                body: formData
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  // Log the response from httpbin.org
+                  console.log(data);
+                  // Display a message after successful submission
+                  div.innerHTML = "<p>Thank you!</p>";
+                })
+                .catch((error) => console.error("Error:", error));
+            } else {
+              //Display message if checkbox not clicked
+              alert("Please agree to the terms and conditions.");
+            }
+          }
+        }
+      }
+
+      // adds event listener to the button
+      button.addEventListener("click", changeContent);
+    </script>
+  </body>
+</html>
