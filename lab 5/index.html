@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newsletter subscription</title>
+</head>
+<body>
+    
+    <div id="myDiv">
+        <p>Subscribe to my annual newsletter!</p>
+        <!--gets user input for different elements-->
+        <form id="myForm" method="post">
+            <label>First Name</label>
+            <input id="first-name" type="text" name="first-name"/>
+            <br/>
+            <br/>
+            <label>Last Name</label>
+            <input id="last-name" type="text" name="last-name"/>
+            <br/>
+            <br/>
+            <label>Email Address</label>
+            <input id="email" type="email" name="email" required/>
+            <br/>
+            <br/>
+            <input type="checkbox" id="agreement1" name="agreement1" value="agree">
+            <label for="agreement1">I agree to the terms and conditions</label>
+            <br/>
+            <br/>
+        </form>
+        <button id="myButton">Submit</button>
+    </div>
+
+<script>
+  // variables created for each element that needs to be validated
+  const button = document.getElementById('myButton');
+  const div = document.getElementById('myDiv');
+  const checkbox = document.getElementById('agreement1');
+  const emailaddy = document.getElementById('email');
+
+  // validation functions defines
+  function changeContent(event) {
+    // does not check other conditions unless button is clicked
+    if (button.click){
+        //checks if email is not valid
+        if(!emailaddy.validity.valid){
+            //checks if nothing is written in email
+            if (emailaddy.validity.valueMissing){
+                alert('email is required');
+                //checks if email is not in correct format
+            } else if (emailaddy.validity.typeMismatch){
+                alert('enter a valid email address');
+            }
+        } else {
+            //checks if agreement checkbox is checked
+            if(checkbox.checked){
+                div.innerHTML = '<p>Thank you!</p>';
+            } else {
+                alert('Please agree to the terms and conditions.');
+            }
+        }
+    }
+  }
+
+  // adds event listener to the button
+  button.addEventListener('click', changeContent);
+</script>
+</body>
+</html>

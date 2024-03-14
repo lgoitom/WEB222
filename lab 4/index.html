@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silly Animals</title>
+    <!--linking css file for stylesheet-->
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <!--calls main and content classes to apply css styling to the members-->
+    <div class="main">Silly Animals</div>
+    <div class="content"></div>
+
+    <!--images and their classes made into one class so that button can call this class to work on all 3 images-->
+    <div class="b">
+        <div class="content1"></div>
+        <!--images are located and their classes are called -->
+        <div class="img">
+            <img src="Funee_monkee_gif.webp" alt="funne monke"/>
+        </div>
+        <div class="content2"></div>
+        <div class="img2">
+            <img src="silly-cat.jpg" alt="silly cat" height="200px" width="200px"/>
+        </div>
+        <div class="content3"></div>
+        <div class="img3">
+            <img src="silly-dog.jpg" alt="silly dog" height="200px" width="200px">
+        </div>
+    </div>
+    <br><br><br>
+    <!--class for the button is created and javascript function is called-->
+    <div class="button" id="toggleElement">
+        <button onclick="visibilityButton()">Click Here</button>
+    </div>
+    <script>
+        //function finds first occurence of "b" and returns the display type of "image"
+        function visibilityButton() {
+            var image = document.querySelector(".b");
+            image.style.display = (image.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

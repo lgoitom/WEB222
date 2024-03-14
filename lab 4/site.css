@@ -1,0 +1,77 @@
+/*site background colour*/
+body{
+    background-color:#e3aca7;
+}
+.main{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    /*space from the margin*/
+    margin: 40px;
+    /*width of box holding the text*/
+    width: 400px;
+    margin-left: 525px;
+    text-align: center;
+    background-color: rgb(188, 126, 120);
+}
+.content{
+    /*colour of border of content box*/
+    border:5px solid brown;
+    background-color: beige;
+    height: 200px;
+    text-align: center;
+    /*creates space around content box*/
+    padding: 50px;
+    align-items: center;
+}
+.img{
+    float: right;
+    /*distance from right*/
+    margin-right: 200px;
+    /*distance from top*/
+    margin-top: -190px;
+}
+.img2{
+    margin-top: -189px;
+    margin-right: 350px;
+    margin-left: 630px;
+}
+.img3{
+    margin-top: -190px;
+    margin-right: 100px;
+    margin-left: 220px;
+}
+.content1{
+    font-size: 42px;
+    font-weight: bold;
+    color:#000000;
+    margin-top:-240px;
+    background-color: rgb(0, 0, 0);
+    width: 178px;
+    height: 180px;
+    margin-left: 1099px;
+}
+.content2{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0);
+    margin-left: 620px;
+    width: 200px;
+    height: 200px;
+    margin-top: -200px;
+}
+.content3{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0);
+    margin-left: 230px;
+    width: 200px;
+    height: 200px;
+    margin-top: -220px;
+}
+.button{
+    margin-top: 100px;
+    margin-left: 675px;
+}
